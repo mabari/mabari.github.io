@@ -1,0 +1,20 @@
+:root {
+  --main-width: 820px;
+}
+
+body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.post-content {
+  line-height: 1.85;
+}
+
+.post-content h2 {
+  margin-top: 2.4em;
+}
+
+.post-content blockquote {
+  border-inline-start-width: 3px;
+}

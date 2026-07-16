@@ -1,0 +1,88 @@
+baseURL: https://mabari.github.io/
+title: 나의 지식 아카이브
+copyright: "© 2026 WOOJUN KIM"
+theme: PaperMod
+locale: ko-KR
+defaultContentLanguage: ko
+hasCJKLanguage: true
+enableRobotsTXT: true
+enableGitInfo: false
+summaryLength: 30
+
+pagination:
+  pagerSize: 10
+
+taxonomies:
+  category: categories
+  tag: tags
+
+outputs:
+  home: [HTML, RSS, JSON]
+
+menu:
+  main:
+    - { identifier: posts, name: 글, url: /posts/, weight: 10 }
+    - { identifier: categories, name: 분야, url: /categories/, weight: 20 }
+    - { identifier: tags, name: 태그, url: /tags/, weight: 30 }
+    - { identifier: archives, name: 아카이브, url: /archives/, weight: 40 }
+    - { identifier: search, name: 검색, url: /search/, weight: 50 }
+    - { identifier: about, name: 소개, url: /about/, weight: 60 }
+
+params:
+  env: production
+  description: 투자, 통계, AI, 프로그래밍, 독서 기록을 연결하는 개인 지식 아카이브
+  author: WOOJUN KIM
+  keywords: [지식 아카이브, 투자, 통계, AI, 프로그래밍, 독서]
+  defaultTheme: auto
+  disableThemeToggle: false
+  DateFormat: "2006년 1월 2일"
+  ShowReadingTime: true
+  ShowWordCount: true
+  ShowToc: true
+  TocOpen: false
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  ShowShareButtons: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  comments: false
+  homeInfoParams:
+    Title: 안녕하세요 👋
+    Content: 투자, 통계, AI, 프로그래밍, 독서에서 배운 것을 연결하고 오래 보관하는 개인 지식 아카이브입니다.
+  socialIcons:
+    - { name: github, url: "https://github.com/mabari" }
+    - { name: rss, url: /index.xml }
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys: [title, permalink, summary, content]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+
+caches:
+  images:
+    dir: :cacheDir/images
+
+privacy:
+  disqus: { disable: true }
+  googleAnalytics: { disable: true }
+  instagram: { disable: true }
+  vimeo: { disable: true }
+  x: { disable: true }
+  youtube: { privacyEnhanced: true }
+
+services:
+  rss:
+    limit: 20

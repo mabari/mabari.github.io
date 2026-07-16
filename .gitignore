@@ -1,0 +1,26 @@
+# Hugo build output and cache
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# Operating-system files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Obsidian per-device UI state
+/.obsidian/workspace.json
+/.obsidian/workspace-mobile.json
+/.obsidian/cache/
+/.obsidian/plugins/*/data.json
+
+# Local AI assistant/session state
+/.claude/
+/.claudian/
+
+# Local environment files and logs
+.env
+.env.*
+*.log
+

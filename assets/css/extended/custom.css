@@ -18,3 +18,64 @@ body {
 .post-content blockquote {
   border-inline-start-width: 3px;
 }
+
+/* Obsidian-style Markdown callouts: > [!warning] 제목 */
+.post-content .callout {
+  --callout-color: 68, 138, 255;
+  margin: 1.5rem 0;
+  padding: 0;
+  overflow: hidden;
+  color: var(--primary);
+  background: rgba(var(--callout-color), 0.09);
+  border: 1px solid rgba(var(--callout-color), 0.35);
+  border-inline-start: 4px solid rgb(var(--callout-color));
+  border-radius: 8px;
+}
+
+.post-content .callout-title {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.75rem 1rem 0.6rem;
+  color: rgb(var(--callout-color));
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.post-content .callout-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: 0 0 auto;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(var(--callout-color), 0.18);
+}
+
+.post-content .callout-content {
+  padding: 0 1rem 0.85rem;
+}
+
+.post-content .callout-content > :first-child {
+  margin-top: 0;
+}
+
+.post-content .callout-content > :last-child {
+  margin-bottom: 0;
+}
+
+.post-content .callout-warning {
+  --callout-color: 224, 151, 0;
+}
+
+.post-content .callout-abstract,
+.post-content .callout-info {
+  --callout-color: 0, 153, 204;
+}
+
+.post-content .callout-example {
+  --callout-color: 139, 92, 246;
+}
+
+.post-content .callout-quote {
+  --callout-color: 100, 116, 139;
+}

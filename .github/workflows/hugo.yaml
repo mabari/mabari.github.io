@@ -3,12 +3,12 @@ name: Build and deploy Hugo site
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -33,18 +33,29 @@ jobs:
           sudo dpkg -i "$RUNNER_TEMP/hugo.deb"
 
       - name: Configure Pages
+        if: github.event_name != 'pull_request'
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Build
+      - name: Build for pull request
+        if: github.event_name == 'pull_request'
+        run: hugo --gc --minify --baseURL "https://mabari.github.io/"
+
+      - name: Build for deployment
+        if: github.event_name != 'pull_request'
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
   deploy:
+    if: github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
